@@ -9,6 +9,7 @@ def start(m,v):
     while (not exit):
         print (v.welcome)
         exit = main_menu(m,v)
+
     print(v.exit)
 
 # MAIN MENU
@@ -16,23 +17,31 @@ def main_menu (m,v):
     print(v.menu)
     read = input().lower()
 
-    while (read != 'g' and read != 'a' and read != 'q'):
+    while (read != 'g' and read != 's' and read != 'a' and read != 'q'):
         print(v.error_start)
         read = input().lower()
 
     if (read == 'g'):
-        exit = generate(m, v)
+        return generate(m, v)
 
     if (read == 'a'):
-        exit = about(m, v)
+        return settings(m, v)
+
+    if (read == 'a'):
+        return about(m, v)
 
     if (read == 'q'):
-        exit = True  # quit
+        return True  # quit
 
-
+# GENERATE NUMBER MENU
 def generate (m,v):
     print("generate menu")
 
+# SETTINGS MENU
+def settings(m, v):
+    print(v.settings)
+
+# ABOUT MENU
 def about (m,v):
     print(v.about)
 
@@ -45,12 +54,3 @@ def about (m,v):
         return main_menu(m, v)  # main menu
     elif (read == 'q'):
         return True  # quit
-
-
-
-
-
-
-
-
-
